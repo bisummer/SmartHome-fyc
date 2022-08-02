@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.zhongyong.smarthome"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,20 +38,16 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support:design:25.3.1'
     /* butterKnife绑定*/
-    implementation 'com.jakewharton:butterknife:7.0.1'
+    // implementation 'com.jakewharton:butterknife:7.0.1'
     /*eventBus事件总线*/
     implementation 'org.greenrobot:eventbus:3.0.0'
     /*glide图片加载*/
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
     /*严正杰swipeMenuRecyclerView*/
     implementation 'com.yanzhenjie:recyclerview-swipe:1.1.1'
     /*卡片层叠效果*/
     implementation 'com.github.mcxtzhang:ZLayoutManager:V1.1.0'
-    /*cardView特效*/
-    implementation 'com.android.support:cardview-v7:25.3.1'
     /*侧滑删除效果*/
     implementation 'com.baoyz.swipemenulistview:library:1.3.0'
     /*轮播图，两边留出一点的magicView（张鸿洋*/
@@ -69,5 +65,11 @@ dependencies {
     //引入SmartRefreshLayout1.1.0 API改动过大，老用户升级需谨慎
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-7'//没有使用特殊Header，可以不加这行
-    implementation 'com.android.support:appcompat-v7:25.3.1'//版本 23以上（必须）
+    // 当我们引入的多个第三方的库共同依赖的库不一致的时候会报这样类似的错误 All com.android.support libraries must use the exact same version specification
+    // implementation 'com.android.support:appcompat-v7:25.3.1'//版本 23以上（必须）
+    // implementation 'com.android.support:design:25.3.1'
+    // implementation 'com.android.support:cardview-v7:25.3.1'// cardView特效
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
 }

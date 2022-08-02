@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.widget.LoadingPopup;
 
-import butterknife.ButterKnife;
+
 
 public abstract class BaseActivity extends BaseAppCompatActivity {
     private LoadingPopup loadingPop;
@@ -51,7 +51,7 @@ public abstract class BaseActivity extends BaseAppCompatActivity {
     @Override
     protected void setCustomTitle(CharSequence title) {
         if (hasTitleBar()) {
-            TextView titleView = ButterKnife.findById(this, R.id.title_tv_message);
+            TextView titleView = findViewById(R.id.title_tv_message);
             if (titleView != null) {
                 titleView.setText(title);
                 setTitle("");
@@ -87,7 +87,7 @@ public abstract class BaseActivity extends BaseAppCompatActivity {
     @Override
     protected void onNavigateClick() {
         if (hasTitleBar()) {
-            RelativeLayout backView = ButterKnife.findById(this, R.id.actionbar_back);
+            RelativeLayout backView = findViewById(R.id.actionbar_back);
             if (backView != null && backView.getVisibility() == View.VISIBLE) {
                 backView.setOnClickListener(new View.OnClickListener() {
                     @Override

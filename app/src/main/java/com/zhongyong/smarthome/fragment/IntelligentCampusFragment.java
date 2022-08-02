@@ -12,20 +12,15 @@ import com.zhongyong.jamod.activity.ZigBeeDetailActivity2;
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseFragment;
 
-import butterknife.Bind;
 
 /**
  * Created by fyc on 2017/12/29.
  */
 
 public class IntelligentCampusFragment extends BaseFragment {
-    @Bind(R.id.item_library)
     RelativeLayout mLibraryRv;
-    @Bind(R.id.item_classroom)
     RelativeLayout mClassroomRv;
-    @Bind(R.id.item_kitchen)
     RelativeLayout mKitchenRv;
-    @Bind(R.id.item_laboratory)
     RelativeLayout mLaboratoryRv;
     Dialog dialog;
 
@@ -35,7 +30,12 @@ public class IntelligentCampusFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
+    protected void initViews(View view) {
+        mLibraryRv = view.findViewById(R.id.item_library);
+        mClassroomRv = view.findViewById(R.id.item_classroom);
+        mKitchenRv = view.findViewById(R.id.item_kitchen);
+        mLaboratoryRv = view.findViewById(R.id.item_laboratory);
+
         dialog = new Dialog(getActivity(), R.style.NoTitleDialogStyle);
         dialog.setContentView(R.layout.dialog_choice);
 

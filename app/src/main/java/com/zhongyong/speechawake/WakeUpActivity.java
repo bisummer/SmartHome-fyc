@@ -51,7 +51,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 
 public class WakeUpActivity extends BaseActivity {
@@ -79,9 +79,7 @@ public class WakeUpActivity extends BaseActivity {
     private static final String ENGLISH_TEXT_MODEL_NAME = "bd_etts_text_en.dat";
     private InetAddress mAddress;
     //listView界面交互
-    @Bind(R.id.chatListView)
     ListView mListView;
-    @Bind(R.id.title_tv_message)
     TextView title;
     ChatAdapter mAdapter;
     List<MessageModel> mList = new ArrayList<>();
@@ -134,6 +132,9 @@ public class WakeUpActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        mListView = findViewById(R.id.chatListView);
+        title = findViewById(R.id.title_tv_message);
+
         setCustomTitle("唤醒小度后，便可与小度聊天");
         initUDP();
         initialSpeechRecognizer();

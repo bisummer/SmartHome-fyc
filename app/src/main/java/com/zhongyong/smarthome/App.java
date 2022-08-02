@@ -114,7 +114,11 @@ public class App extends Application {
     }
 
     public void exit() {
-        if (mSerial != null)
-            mSerial.releaseSource();
+        try {// 测试修改
+            if (mSerial != null)
+                mSerial.releaseSource();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -3,12 +3,13 @@ package com.zhongyong.smarthome.fragment;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
@@ -28,8 +29,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.Bind;
-
 /**
  * Created by fyc on 2017/7/26.
  */
@@ -37,9 +36,7 @@ import butterknife.Bind;
 public class DeviceFragment extends BaseFragment {
     private static final int TYPE_HEADER = 51;
     private static final int TYPE_CONTENT = 52;
-    @Bind(R.id.fd_devices_sv)
     SwipeMenuRecyclerView recyclerView;
-    @Bind(R.id.fd_deviceSearch_rv)
     RelativeLayout searchRv;
     TextView rightTv;
     MultiItemTypeAdapter<Device> mAdapter;
@@ -51,7 +48,10 @@ public class DeviceFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
+    protected void initViews(View view) {
+        recyclerView = view.findViewById(R.id.fd_devices_sv);
+        searchRv = view.findViewById(R.id.fd_deviceSearch_rv);
+
         rightTv = (TextView) getActivity().findViewById(R.id.title_right);
         rightTv.setVisibility(View.GONE);
         searchRv.setVisibility(View.VISIBLE);

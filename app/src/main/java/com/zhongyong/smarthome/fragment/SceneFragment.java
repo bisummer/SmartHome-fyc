@@ -1,9 +1,10 @@
 package com.zhongyong.smarthome.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.mcxtzhang.layoutmanager.swipecard.CardConfig;
 import com.mcxtzhang.layoutmanager.swipecard.OverLayCardLayoutManager;
@@ -13,18 +14,17 @@ import com.zhongyong.smarthome.activity.NewSceneActivity;
 import com.zhongyong.smarthome.base.BaseFragment;
 import com.zhongyong.smarthome.base.recyclerview.CommonAdapter;
 import com.zhongyong.smarthome.model.Scene;
+import com.zhongyong.smarthome.utils.ImageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 
 /**
  * Created by fyc on 2017/7/26.
  */
 
 public class SceneFragment extends BaseFragment {
-    @Bind(R.id.as_scenes_rv)
     RecyclerView mRecyclerView;
     CommonAdapter<Scene> mAdapter;
     List<Scene> mList = new ArrayList<>();
@@ -35,7 +35,8 @@ public class SceneFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
+    protected void initViews(View view) {
+        mRecyclerView = view.findViewById(R.id.as_scenes_rv);
         mRecyclerView.setLayoutManager(new OverLayCardLayoutManager());
     }
 
@@ -94,14 +95,14 @@ public class SceneFragment extends BaseFragment {
     @Override
     protected void initData() {
         int i = 1;
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/canting.jpg", "餐厅", 1));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/woshi.jpg", "卧室", 0));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/chufang.jpg", "厨房", 1));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/zoulang.jpg", "走廊", 0));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/mainroom.jpg", "主卧", 1));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/xishoujian.jpg", "洗手间", 1));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/worhi.jpg", "A房间", 0));
-        mList.add(new Scene(i++, "http://opor07of8.bkt.clouddn.com/room.jpg", "主卧", 1));
+        mList.add(new Scene(i++, ImageUtils.canting, "餐厅", 1));
+        mList.add(new Scene(i++, ImageUtils.wo_shi, "卧室", 0));
+        mList.add(new Scene(i++, ImageUtils.chufang, "厨房", 1));
+        mList.add(new Scene(i++, ImageUtils.zoulang, "走廊", 0));
+        mList.add(new Scene(i++, ImageUtils.mainroom, "主卧", 1));
+        mList.add(new Scene(i++, ImageUtils.xishoujian, "洗手间", 1));
+        mList.add(new Scene(i++, ImageUtils.worhi, "A房间", 0));
+        mList.add(new Scene(i++, ImageUtils.room, "主卧", 1));
         mAdapter.notifyDataSetChanged();
     }
 

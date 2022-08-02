@@ -7,9 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -21,6 +18,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
@@ -98,7 +99,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public void setNetImage(int resId, String path) {
         if (path != null) {
             final ImageView img = getView(resId);
-            Glide.with(mContext).load(path).asBitmap().placeholder(R.drawable.avatar_default).error(R.drawable.avatar_default).centerCrop().into(new BitmapImageViewTarget(img) {
+            Glide.with(mContext).asBitmap().load(path).placeholder(R.drawable.avatar_default).error(R.drawable.avatar_default).centerCrop().into(new BitmapImageViewTarget(img) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
@@ -113,7 +114,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public void setNetImageRadius(int resId, String path, final int radius) {
         final ImageView img = getView(resId);
-        Glide.with(mContext).load(path).asBitmap().placeholder(R.drawable.avatar_default).error(R.drawable.avatar_default).centerCrop().into(new BitmapImageViewTarget(img) {
+        Glide.with(mContext).asBitmap().load(path).placeholder(R.drawable.avatar_default).error(R.drawable.avatar_default).centerCrop().into(new BitmapImageViewTarget(img) {
             @Override
             protected void setResource(Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =
@@ -127,7 +128,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public void setCircleImage(int resId, String path) {
         if (path != null) {
             final ImageView imageView = getView(resId);
-            Glide.with(App.getInstance()).load(path).asBitmap().centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.login_tupian_def)).into(new BitmapImageViewTarget(imageView) {
+            Glide.with(App.getInstance()).asBitmap().load(path).centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.login_tupian_def)).into(new BitmapImageViewTarget(imageView) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =

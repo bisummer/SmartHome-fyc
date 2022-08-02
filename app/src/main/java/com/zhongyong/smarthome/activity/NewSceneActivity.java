@@ -1,11 +1,12 @@
 package com.zhongyong.smarthome.activity;
 
-import android.support.v4.view.PagerAdapter;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
@@ -27,18 +28,15 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 /**
  * Created by fyc on 2017/8/3.
  */
 
 public class NewSceneActivity extends BaseActivity {
-    @Bind(R.id.title_right)
     TextView saveTv;
-    @Bind(R.id.sn_devices_lv)
     SwipeMenuListView mListView;
-    @Bind(R.id.ft_single_fab)
     FloatingActionButton mFloatingActionButton;
     AutoPlayViewPager mViewPager;
     PagerAdapter mPagerAdapter;
@@ -54,6 +52,10 @@ public class NewSceneActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        saveTv = findViewById(R.id.title_right);
+        mListView = findViewById(R.id.sn_devices_lv);
+        mFloatingActionButton = findViewById(R.id.ft_single_fab);
+
         if(!TextUtils.isEmpty(getIntent().getStringExtra("sceneName"))){
             String title=getIntent().getStringExtra("sceneName");
             setCustomTitle(title);
@@ -68,9 +70,9 @@ public class NewSceneActivity extends BaseActivity {
     }
 
     private void initBanner() {
-        images.add("http://opor07of8.bkt.clouddn.com/woshi.jpg");
-        images.add("http://opor07of8.bkt.clouddn.com/room.jpg");
-        images.add("http://opor07of8.bkt.clouddn.com/worhi.jpg");
+        images.add(ImageUtils.wo_shi);
+        images.add(ImageUtils.canting);
+        images.add(ImageUtils.worhi);
         mViewPager.setPageMargin(30);
         mViewPager.setOffscreenPageLimit(3);
         mPagerAdapter = new PagerAdapter() {

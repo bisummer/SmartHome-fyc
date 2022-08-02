@@ -16,12 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import butterknife.Bind;
-
 import static com.zhongyong.jamod.apis.ApiClient.call;
 
 public class MaintenanceActivity extends BaseActivity {
-    @Bind(R.id.maintenanceLv)
     ListView maintenanceLv;
     BasicAdapter<MaintainApply> mAdapter;
     List<MaintainApply> mList = new ArrayList<>();
@@ -33,6 +30,7 @@ public class MaintenanceActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        maintenanceLv = findViewById(R.id.maintenanceLv);
         //设置横屏显示
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 

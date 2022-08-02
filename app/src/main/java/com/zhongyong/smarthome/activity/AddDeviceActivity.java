@@ -1,9 +1,10 @@
 package com.zhongyong.smarthome.activity;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 import com.yanzhenjie.recyclerview.swipe.touch.OnItemMoveListener;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 /**
  * Created by fyc on 2017/8/3.
@@ -30,9 +31,7 @@ import butterknife.Bind;
 public class AddDeviceActivity extends BaseActivity {
     private static final int TYPE_HEADER = 51;
     private static final int TYPE_CONTENT = 52;
-    @Bind(R.id.title_right)
     TextView finishTv;
-    @Bind(R.id.fd_devices_sv)
     SwipeMenuRecyclerView recyclerView;
     MultiItemTypeAdapter<Device> mAdapter;
     List<Device> mList = new ArrayList<>();
@@ -45,6 +44,9 @@ public class AddDeviceActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        finishTv = findViewById(R.id.title_right);
+        recyclerView = findViewById(R.id.fd_devices_sv);
+
         setCustomTitle("新增设备");
         finishTv.setVisibility(View.VISIBLE);
         finishTv.setText("完成");

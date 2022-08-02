@@ -1,6 +1,7 @@
 package com.zhongyong.smarthome.base.recyclerview;
 
-import android.support.v4.util.SparseArrayCompat;
+
+import androidx.collection.SparseArrayCompat;
 
 /**
  * Created by fyc on 2017/4/27

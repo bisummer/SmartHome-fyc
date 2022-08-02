@@ -9,10 +9,9 @@ import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseActivity;
 import com.zhongyong.smarthome.model.ColorManager;
 
-import butterknife.Bind;
+
 
 public class ThemeSettingActivity extends BaseActivity {
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
     private final int[] layouts = {R.id.skin_01, R.id.skin_02, R.id.skin_03, R.id.skin_04, R.id.skin_05};
 
@@ -24,6 +23,7 @@ public class ThemeSettingActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        backIv = findViewById(R.id.cab_titleBack_iv);
         backIv.setVisibility(View.VISIBLE);
         setCustomTitle("主题");
         int colorArr[] = ColorManager.getInstance().getSkinColor(this);

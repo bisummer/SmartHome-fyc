@@ -1,12 +1,6 @@
 package com.zhongyong.smarthome;
 
 import android.content.Intent;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +8,13 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
 import com.zhongyong.jamod.activity.LoginActivity;
 import com.zhongyong.jamod.model.User;
 import com.zhongyong.smarthome.activity.MyFamilyActivity;
@@ -33,26 +34,17 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 public class MainActivity extends BaseActivity {
-    @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-    @Bind(R.id.nb_rg_naviBottom)
     RadioGroup mRadioGroup;
-    @Bind(R.id.am_changeTheme_ll)
     LinearLayout changeThemeLay;
-    @Bind(R.id.item1_rv)
     RelativeLayout item1;
-    @Bind(R.id.item2_rv)
     RelativeLayout item2;
-    @Bind(R.id.titleBar)
     ColorLinearLayout mLayout;
-    @Bind(R.id.cab_add_iv)
     ImageView addIv;
-    @Bind(R.id.title_right)
     TextView rightTv;
-    @Bind(R.id.nav_view)
     NavigationView mNavigationView;
     View header;
     TextView loginTv;
@@ -74,6 +66,15 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mRadioGroup = findViewById(R.id.nb_rg_naviBottom);
+        changeThemeLay = findViewById(R.id.am_changeTheme_ll);
+        item1 = findViewById(R.id.item1_rv);
+        item2 = findViewById(R.id.item2_rv);
+        mLayout = findViewById(R.id.titleBar);
+        addIv = findViewById(R.id.cab_add_iv);
+        rightTv = findViewById(R.id.title_right);
+        mNavigationView = findViewById(R.id.nav_view);
         header = mNavigationView.getHeaderView(0);
         loginTv = (TextView) header.findViewById(R.id.nav_login);
         telephoneTv = (TextView) header.findViewById(R.id.navi_telephone);

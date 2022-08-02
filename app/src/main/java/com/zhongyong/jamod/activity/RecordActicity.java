@@ -26,20 +26,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 /**
  * Created by fyc on 2018/1/11.
  */
 
 public class RecordActicity extends BaseActivity {
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
-    @Bind(R.id.title_tv_message)
     TextView titleTv;
-    @Bind(R.id.title_right)
     TextView rightTv;
-    @Bind(R.id.recordLv)
     ListView mListView;
     BasicAdapter<Record> mAdapter;
     List<Record> mRecordList = new ArrayList<>();
@@ -53,6 +49,11 @@ public class RecordActicity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        backIv = findViewById(R.id.cab_titleBack_iv);
+        titleTv = findViewById(R.id.title_tv_message);
+        rightTv = findViewById(R.id.title_right);
+        mListView = findViewById(R.id.recordLv);
+
         titleTv.setText("报警记录");
         rightTv.setVisibility(View.VISIBLE);
         rightTv.setText("删除");

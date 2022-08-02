@@ -1,9 +1,10 @@
 package com.zhongyong.smarthome.activity;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseActivity;
@@ -15,18 +16,13 @@ import com.zhongyong.smarthome.utils.ImageUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 public class MyFamilyActivity extends BaseActivity {
-
-    @Bind(R.id.cab_more_iv)
     ImageView moreIv;
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
-    @Bind(R.id.amf_pic_iv)
     ImageView createPersonIv;
     CommonAdapter<Member> mAdapter;
-    @Bind(R.id.amf_myFamily_rv)
     RecyclerView mRecyclerView;
     List<Member> mList = new ArrayList<>();
 
@@ -38,11 +34,14 @@ public class MyFamilyActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        moreIv= findViewById(R.id.cab_more_iv);
+        backIv= findViewById(R.id.cab_titleBack_iv);
+        ImageView createPersonIv= findViewById(R.id.amf_pic_iv);
+        mRecyclerView= findViewById(R.id.amf_myFamily_rv);
         setCustomTitle("我的家");
         moreIv.setVisibility(View.VISIBLE);
         backIv.setVisibility(View.VISIBLE);
-        ImageUtils.setCircleImage(createPersonIv, "http://opor07of8.bkt.clouddn.com/Screenshot_2017-05-05-10-00-29-71.png");
-
+        ImageUtils.setCircleImage(createPersonIv, ImageUtils.Screenshot_2017);
     }
 
     @Override
@@ -81,9 +80,9 @@ public class MyFamilyActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        mList.add(new Member("http://opor07of8.bkt.clouddn.com/campus1.jpg", "哥哥", "jfajdflajdfljfa", 1));
-        mList.add(new Member("http://opor07of8.bkt.clouddn.com/campus2.jpg", "爸爸", "jfajdflajdfljfa", 0));
-        mList.add(new Member("http://opor07of8.bkt.clouddn.com/campus3.jpg", "妈妈", "jfajdflajdfljfa", 0));
+        mList.add(new Member(ImageUtils.campus1, "哥哥", "jfajdflajdfljfa", 1));
+        mList.add(new Member(ImageUtils.campus2, "爸爸", "jfajdflajdfljfa", 0));
+        mList.add(new Member(ImageUtils.campus3, "妈妈", "jfajdflajdfljfa", 0));
         mAdapter.notifyDataSetChanged();
     }
 

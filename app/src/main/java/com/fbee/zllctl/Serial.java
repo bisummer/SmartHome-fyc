@@ -17,8 +17,8 @@ public class Serial {
         Serial.mContext = mContext;
     }
 
-    static {
-        System.loadLibrary("zllcmd");
+    static {// 测试修改
+        // System.loadLibrary("zllcmd");
     }
 
 	/* about net system */

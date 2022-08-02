@@ -27,8 +27,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-
 import static com.zhongyong.jamod.apis.ApiClient.call;
 
 /**
@@ -36,9 +34,7 @@ import static com.zhongyong.jamod.apis.ApiClient.call;
  */
 
 public class ModBusGateWayListActivity extends BaseActivity {
-    @Bind(R.id.gatewaysLv)
     SwipeMenuListView mMenuListView;
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
     List<ModBusGateWayModel> mList = new ArrayList<>();
     BasicAdapter<ModBusGateWayModel> mAdapter;
@@ -54,6 +50,9 @@ public class ModBusGateWayListActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        mMenuListView = findViewById(R.id.gatewaysLv);
+        backIv = findViewById(R.id.cab_titleBack_iv);
+
         setCustomTitle("modBus网关");
         backIv.setVisibility(View.VISIBLE);
         footer = LayoutInflater.from(this).inflate(R.layout.footer_gateway_add, null);

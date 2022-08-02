@@ -5,9 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.helper.VaryViewHelperController;
@@ -16,8 +17,6 @@ import com.zhongyong.smarthome.network.NetworkStateReceiver;
 import com.zhongyong.smarthome.network.NetworkUtils;
 
 import org.greenrobot.eventbus.EventBus;
-
-import butterknife.ButterKnife;
 
 
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
@@ -279,7 +278,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.bind(this);
+
     }
 
     @Override
@@ -293,7 +292,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        ButterKnife.unbind(this);
         if (isBindEventBusHere()) {
             EventBus.getDefault().unregister(this);
         }

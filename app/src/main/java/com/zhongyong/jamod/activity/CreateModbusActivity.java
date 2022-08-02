@@ -23,8 +23,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-
 import static com.zhongyong.jamod.apis.ApiClient.call;
 
 /**
@@ -32,17 +30,11 @@ import static com.zhongyong.jamod.apis.ApiClient.call;
  */
 
 public class CreateModbusActivity extends BaseActivity {
-    @Bind(R.id.title_right)
     TextView rightTv;
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
-    @Bind(R.id.acn_edt_ip)
     EditText ipEdt;
-    @Bind(R.id.acn_edt_id)
     EditText idEdt;
-    @Bind(R.id.acn_edt_name)
     EditText nameEdt;
-    @Bind(R.id.title_tv_message)
     TextView titleTv;
     List<ModBusGateWayModel> mModBusGateWayModels;
     String preferenceGateWay;
@@ -55,6 +47,13 @@ public class CreateModbusActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        rightTv= findViewById(R.id.title_right);
+        backIv= findViewById(R.id.cab_titleBack_iv);
+        ipEdt= findViewById(R.id.acn_edt_ip);
+        idEdt= findViewById(R.id.acn_edt_id);
+        nameEdt= findViewById(R.id.acn_edt_name);
+        titleTv= findViewById(R.id.title_tv_message);
+
         backIv.setVisibility(View.VISIBLE);
         titleTv.setText("编辑设备信息");
         rightTv.setText("保存");

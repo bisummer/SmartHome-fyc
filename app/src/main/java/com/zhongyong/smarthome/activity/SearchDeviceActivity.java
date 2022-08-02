@@ -7,16 +7,14 @@ import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseActivity;
 import com.zhongyong.smarthome.widget.RadarView;
 
-import butterknife.Bind;
+
 
 /**
  * Created by fyc on 2017/8/14.
  */
 
 public class SearchDeviceActivity extends BaseActivity {
-    @Bind(R.id.device_search)
     RadarView searchRadar;
-    @Bind(R.id.title_right)
     TextView mRightTv;
     public  static int count;
 
@@ -28,6 +26,9 @@ public class SearchDeviceActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        searchRadar = findViewById(R.id.device_search);
+        mRightTv = findViewById(R.id.title_right);
+
         mRightTv.setVisibility(View.VISIBLE);
         mRightTv.setText("完成");
         searchRadar.start();

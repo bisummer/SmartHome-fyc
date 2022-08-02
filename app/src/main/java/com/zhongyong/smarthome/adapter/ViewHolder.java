@@ -3,8 +3,6 @@ package com.zhongyong.smarthome.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -13,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
-import butterknife.ButterKnife;
+
 
 
 /**
@@ -84,7 +85,7 @@ public class ViewHolder {
     public <T extends View> T getSubView(int viewId) {
         View view = subViews.get(viewId);
         if (view == null) {
-            view = ButterKnife.findById(mConvertView, viewId);
+            view = mConvertView.findViewById(viewId);
             subViews.put(viewId, view);
         }
         return (T) view;
@@ -100,7 +101,7 @@ public class ViewHolder {
     public <T extends View> T getSubViewWithTag(int viewId, Object tag) {
         View view = subViews.get(tag.hashCode());
         if (view == null || view.getTag() == null || view.getTag() != tag) {
-            view = ButterKnife.findById(mConvertView, viewId);
+            view = mConvertView.findViewById(viewId);
             view.setTag(tag);
             subViews.put(tag.hashCode(), view);
         }
@@ -152,7 +153,7 @@ public class ViewHolder {
     public void setImage(int resId, String path) {
         if (path != null) {
             final ImageView img = getSubView(resId);
-            Glide.with(mContext).load(path).asBitmap().centerCrop().into(new BitmapImageViewTarget(img) {
+            Glide.with(mContext).asBitmap().load(path).centerCrop().into(new BitmapImageViewTarget(img) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
@@ -166,7 +167,7 @@ public class ViewHolder {
 
     public void setImage(int resId, int path) {
         final ImageView img = getSubView(resId);
-        Glide.with(mContext).load(path).asBitmap().centerCrop().into(new BitmapImageViewTarget(img) {
+        Glide.with(mContext).asBitmap().load(path).centerCrop().into(new BitmapImageViewTarget(img) {
             @Override
             protected void setResource(Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =
@@ -192,7 +193,7 @@ public class ViewHolder {
     public void setImage(int resId, int placeholder, String path) {
         ImageView img = getSubView(resId);
         final ImageView imgView = getSubView(resId);
-        Glide.with(mContext).load(path).asBitmap().centerCrop().into(new BitmapImageViewTarget(imgView) {
+        Glide.with(mContext).asBitmap().load(path).centerCrop().into(new BitmapImageViewTarget(imgView) {
             @Override
             protected void setResource(Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =
@@ -265,7 +266,7 @@ public class ViewHolder {
     public void setCircleImage(int resId, int defaultImg, String imgUrl) {
         final ImageView imgView = getSubView(resId);
 
-        Glide.with(mContext).load(imgUrl).asBitmap().centerCrop().into(new BitmapImageViewTarget(imgView) {
+        Glide.with(mContext).asBitmap().load(imgUrl).centerCrop().into(new BitmapImageViewTarget(imgView) {
             @Override
             protected void setResource(Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =

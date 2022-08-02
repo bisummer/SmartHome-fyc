@@ -7,12 +7,10 @@ import android.widget.TextView;
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseActivity;
 
-import butterknife.Bind;
 import cn.jpush.android.api.JPushInterface;
 
 public class TestActivity extends BaseActivity {
 
-    @Bind(R.id.notification_content)
     TextView notificationContentTv;
 
     @Override
@@ -22,6 +20,7 @@ public class TestActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        notificationContentTv = findViewById(R.id.notification_content);
         Intent intent = getIntent();
         if (null != intent) {
             Bundle bundle = getIntent().getExtras();
@@ -33,7 +32,6 @@ public class TestActivity extends BaseActivity {
             }
             notificationContentTv.setText("接收到的推送内容为：" + content);
         }
-
     }
 
     @Override

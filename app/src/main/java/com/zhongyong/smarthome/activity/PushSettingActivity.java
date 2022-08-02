@@ -7,25 +7,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhongyong.smarthome.jpush.ExampleUtil;
-import com.zhongyong.smarthome.jpush.TagAliasOperatorHelper;
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseActivity;
+import com.zhongyong.smarthome.jpush.ExampleUtil;
+import com.zhongyong.smarthome.jpush.TagAliasOperatorHelper;
 import com.zhongyong.smarthome.utils.SharePreferenceUtils;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import butterknife.Bind;
 
 import static com.zhongyong.smarthome.jpush.TagAliasOperatorHelper.ACTION_SET;
 import static com.zhongyong.smarthome.jpush.TagAliasOperatorHelper.sequence;
 
 
 public class PushSettingActivity extends BaseActivity {
-    @Bind(R.id.title_right)
     TextView rightTv;
-    @Bind(R.id.aps_edt_pushTag)
     EditText pushTagEdt;
     String preferenceTag;
     int action = -1;
@@ -37,6 +33,9 @@ public class PushSettingActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        rightTv = findViewById(R.id.title_right);
+        pushTagEdt = findViewById(R.id.aps_edt_pushTag);
+
         rightTv.setText("保存");
         rightTv.setVisibility(View.VISIBLE);
         preferenceTag = (String) SharePreferenceUtils.get(this, "pushTag", "");

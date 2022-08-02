@@ -6,17 +6,22 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import androidx.annotation.NonNull;
+
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+
+import java.security.MessageDigest;
 
 /**
  * Created by brzhang on 16/6/25.
  * Description :
  */
 public class RoundImageTransform extends BitmapTransformation {
+    Context context;
 
     public RoundImageTransform(Context context) {
-        super(context);
+        this.context = context;
     }
 
     //其中outWidth 和 outHeight是你传入的图片的宽高
@@ -49,7 +54,7 @@ public class RoundImageTransform extends BitmapTransformation {
     }
 
     @Override
-    public String getId() {
-        return getClass().getName();
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+
     }
 }

@@ -1,5 +1,6 @@
 package com.zhongyong.smarthome.fragment;
 
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.zhongyong.smarthome.R;
@@ -8,18 +9,13 @@ import com.zhongyong.smarthome.activity.PushSettingActivity;
 import com.zhongyong.smarthome.activity.RepairActivity;
 import com.zhongyong.smarthome.base.BaseFragment;
 
-import butterknife.Bind;
-
 /**
  * Created by fyc on 2017/7/26.
  */
 
 public class HomeFragment extends BaseFragment {
-    @Bind(R.id.fm_repair_lyt)
     RelativeLayout repairLayout;
-    @Bind(R.id.fm_maintenance_lyt)
     RelativeLayout maintenanceLayout;
-    @Bind(R.id.fm_setting_lyt)
     RelativeLayout pushSettingLayout;
 
     @Override
@@ -28,8 +24,10 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
-
+    protected void initViews(View view) {
+        repairLayout = view.findViewById(R.id.fm_repair_lyt);
+        maintenanceLayout = view.findViewById(R.id.fm_maintenance_lyt);
+        pushSettingLayout = view.findViewById(R.id.fm_setting_lyt);
     }
 
     @Override

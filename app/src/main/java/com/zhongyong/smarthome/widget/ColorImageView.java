@@ -2,8 +2,9 @@ package com.zhongyong.smarthome.widget;
 
 import android.content.Context;
 import android.graphics.LightingColorFilter;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.zhongyong.smarthome.model.ColorManager;
 import com.zhongyong.smarthome.model.OnColorChangedListener;

@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,13 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.zhongyong.smarthome.widget.LoadingPopup;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.lang.reflect.Field;
 
-import butterknife.ButterKnife;
+
 
 
 public abstract class BaseFragment extends Fragment {
@@ -62,7 +63,7 @@ public abstract class BaseFragment extends Fragment {
     /**
      * init activity view and bind event
      */
-    protected abstract void initViews();
+    protected abstract void initViews(View view);
 
     /**
      * 初始化适配器
@@ -106,15 +107,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         mScreenDensity = displayMetrics.density;
         mScreenHeight = displayMetrics.heightPixels;
         mScreenWidth = displayMetrics.widthPixels;
-        initViews();
+        initViews(view);
         initAdapter();
         initData();
         initListener();
@@ -220,7 +219,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
         if (isBindEventBusHere()) {
             EventBus.getDefault().unregister(this);
         }

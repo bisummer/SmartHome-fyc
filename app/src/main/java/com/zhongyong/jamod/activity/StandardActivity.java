@@ -13,14 +13,11 @@ import com.zhongyong.smarthome.utils.SharePreferenceUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.Bind;
+
 
 public class StandardActivity extends BaseActivity {
-    @Bind(R.id.acn_edt_value)
     EditText valueEdt;
-    @Bind(R.id.title_right)
     TextView rightTv;
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
     int position;
     String standardValue;
@@ -32,6 +29,10 @@ public class StandardActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        valueEdt = findViewById(R.id.acn_edt_value);
+        rightTv = findViewById(R.id.title_right);
+        backIv = findViewById(R.id.cab_titleBack_iv);
+
         Intent intent = getIntent();
         if (intent != null) {
             position = intent.getIntExtra("position", -1);

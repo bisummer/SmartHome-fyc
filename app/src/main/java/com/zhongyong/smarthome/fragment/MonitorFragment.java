@@ -1,5 +1,7 @@
 package com.zhongyong.smarthome.fragment;
 
+import android.view.View;
+
 import com.zhongyong.smarthome.R;
 import com.zhongyong.smarthome.base.BaseFragment;
 
@@ -14,7 +16,7 @@ public class MonitorFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
+    protected void initViews(View view) {
 
     }
 

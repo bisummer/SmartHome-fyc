@@ -19,23 +19,15 @@ import com.zhongyong.smarthome.utils.StringUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.Bind;
-
 import static com.zhongyong.jamod.apis.ApiClient.call;
 
 public class RegisterActivity extends BaseActivity {
-    @Bind(R.id.arp_phoneNumber_edit)
     EditText phoneEdit;
-    @Bind(R.id.arp_clear_phone_lyt)
     RelativeLayout clearPhoneLyt;
-    @Bind(R.id.arp_verifyTx_name)
     EditText nameEdit;
-    @Bind(R.id.arp_verifyTx_password)
     EditText passwordEdit;
-    @Bind(R.id.arp_next_btn)
     TextView nextBtn;
     User mUser = new User();
-
 
     @Override
     protected int getContentViewLayoutID() {
@@ -44,7 +36,11 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-
+        phoneEdit= findViewById(R.id.arp_phoneNumber_edit);
+        clearPhoneLyt= findViewById(R.id.arp_clear_phone_lyt);
+        nameEdit= findViewById(R.id.arp_verifyTx_name);
+        passwordEdit= findViewById(R.id.arp_verifyTx_password);
+        nextBtn= findViewById(R.id.arp_next_btn);
     }
 
     @Override

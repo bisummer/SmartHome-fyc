@@ -6,13 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.fbee.zllctl.Contants;
 import com.fbee.zllctl.DeviceInfo;
@@ -29,20 +30,16 @@ import com.zhongyong.speechawake.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+
 
 /**
  * Created by fyc on 2018/1/2.
  */
 
 public class ZigBeeDetailActivity2 extends BaseActivity {
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
-    @Bind(R.id.layout)
     CoordinatorLayout mCoordinatorLayout;
-    @Bind(R.id.progressBar)
     ProgressBar mProgressBar;
-    @Bind(R.id.zigbee_device_lv)
     ListView mListView;
     TextView mGatewayTv;
     TextView connectStateTv;
@@ -105,6 +102,11 @@ public class ZigBeeDetailActivity2 extends BaseActivity {
 
     @Override
     protected void initViews() {
+        backIv = findViewById(R.id.cab_titleBack_iv);
+        mCoordinatorLayout = findViewById(R.id.layout);
+        mProgressBar = findViewById(R.id.progressBar);
+        mListView = findViewById(R.id.zigbee_device_lv);
+
         headerView = getLayoutInflater().inflate(R.layout.header_zigbee2, null);
         footerView = getLayoutInflater().inflate(R.layout.foot_zigbee_device, null);
         connectStateTv = (TextView) headerView.findViewById(R.id.connect_show);

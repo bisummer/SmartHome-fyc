@@ -36,7 +36,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.io.IOException;
 import java.util.Map;
 
-import butterknife.Bind;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -50,25 +49,15 @@ import rx.schedulers.Schedulers;
 import static com.zhongyong.jamod.apis.ApiClient.call;
 
 public class LoginActivity extends BaseActivity {
-    @Bind(R.id.al_phoneNumber_edit)
     EditText phoneEdit;
-    @Bind(R.id.al_code_label_lyt)
     RelativeLayout phoneLyt;
-    @Bind(R.id.al_password_edit)
     EditText passwordEdit;
-    @Bind(R.id.al_clear_password_lyt)
     RelativeLayout clearPasswordLyt;
-    @Bind(R.id.al_clear_phone_lyt)
     RelativeLayout clearPhoneLyt;
-    @Bind(R.id.al_register_txt)
     TextView registerTv;
-    @Bind(R.id.al_login_btn)
     TextView loginBtn;
-    @Bind(R.id.al_weixin_lyt)
     RelativeLayout weiXinLoginRv;
-    @Bind(R.id.al_qq_lyt)
     LinearLayout qqLoginLv;
-    @Bind(R.id.al_verify_lyt)
     RelativeLayout verifyLoginRv;
     private ProgressDialog dialog;
     User mUser = new User();
@@ -80,6 +69,17 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        phoneEdit = findViewById(R.id.al_phoneNumber_edit);
+        phoneLyt = findViewById(R.id.al_code_label_lyt);
+        passwordEdit = findViewById(R.id.al_password_edit);
+        clearPasswordLyt = findViewById(R.id.al_clear_password_lyt);
+        clearPhoneLyt = findViewById(R.id.al_clear_phone_lyt);
+        registerTv = findViewById(R.id.al_register_txt);
+        loginBtn = findViewById(R.id.al_login_btn);
+        weiXinLoginRv = findViewById(R.id.al_weixin_lyt);
+        qqLoginLv = findViewById(R.id.al_qq_lyt);
+        verifyLoginRv = findViewById(R.id.al_verify_lyt);
+
         setCustomTitle("登录");
         dialog = new ProgressDialog(this);
         if (App.getUser() != null) {

@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import com.zhongyong.smarthome.R;
 
-import butterknife.ButterKnife;
+
 
 /**
  * 常用视图替换操作的帮助类，如：网络错误、异常提示、空内容提示、加载中
@@ -104,7 +104,7 @@ public class VaryViewHelperController {
     public void showCustomEmpty(int resId, String msg, View.OnClickListener listener) {
         View layout = helper.inflate(R.layout.common_none);
         if (resId > 0) {
-            ImageView emptyImg = ButterKnife.findById(layout, R.id.empty_img);
+            ImageView emptyImg = layout.findViewById(R.id.empty_img);
             emptyImg.setImageResource(resId);
 
             if (listener != null)
@@ -112,7 +112,7 @@ public class VaryViewHelperController {
         }
 
         if (!TextUtils.isEmpty(msg)) {
-            TextView tv_empty_msg = ButterKnife.findById(layout, R.id.empty_msg);
+            TextView tv_empty_msg = layout.findViewById(R.id.empty_msg);
             tv_empty_msg.setText(msg);
         }
         helper.showLayout(layout);

@@ -8,10 +8,11 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Base64;
 import android.widget.ImageView;
+
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
@@ -25,11 +26,24 @@ import java.io.IOException;
  * Created by Administrator on 2016/7/7.
  */
 public class ImageUtils {
+    public static final String wo_shi = "https://img1.baidu.com/it/u=1854502057,103455225&fm=253&fmt=auto&app=138&f=JPEG";// 卧室 http://opor07of8.bkt.clouddn.com/woshi.jpg
+    public static final String canting ="https://img0.baidu.com/it/u=1425656574,2830166878&fm=253&app=120&size=w931&n=0&f=JPEG";// 餐厅 "http://opor07of8.bkt.clouddn.com/canting.jpg"
+    public static final String chufang ="https://img0.baidu.com/it/u=589572245,831270830&fm=253&app=138&size=w931&n=0&f=JPEG";// 厨房 "http://opor07of8.bkt.clouddn.com/chufang.jpg"
+    public static final String zoulang ="https://img0.baidu.com/it/u=500230228,2324369670&fm=253&app=138&size=w931&n=0&f=JPEG";// 走廊 "http://opor07of8.bkt.clouddn.com/zoulang.jpg"
+    public static final String mainroom ="https://img0.baidu.com/it/u=2269636698,1073969005&fm=253&app=138&size=w931&n=0&f=JPEG";// 主卧 "http://opor07of8.bkt.clouddn.com/mainroom.jpg"
+    public static final String xishoujian ="https://img0.baidu.com/it/u=589572245,831270830&fm=253&app=138&size=w931&n=0&f=JPEG";// 洗手间 "http://opor07of8.bkt.clouddn.com/xishoujian.jpg"
+    public static final String worhi ="https://img1.baidu.com/it/u=2023390791,3057009341&fm=253&fmt=auto&app=138&f=JPG";// A房间 "http://opor07of8.bkt.clouddn.com/worhi.jpg"
+    public static final String room ="https://img1.baidu.com/it/u=4100706516,2171147058&fm=253&fmt=auto&app=138&f=JPEG";// 主卧 "http://opor07of8.bkt.clouddn.com/room.jpg"
 
+    public static final String campus1 = "https://img1.baidu.com/it/u=3773957770,285993983&fm=253&fmt=auto&app=138&f=JPEG";// 哥哥 http://opor07of8.bkt.clouddn.com/campus1.jpg
+    public static final String campus2 ="https://img1.baidu.com/it/u=529199542,495794959&fm=253&fmt=auto&app=138&f=JPEG";// 爸爸 "http://opor07of8.bkt.clouddn.com/campus2.jpg"
+    public static final String campus3 ="https://img1.baidu.com/it/u=2201706329,406772638&fm=253&fmt=auto&app=138&f=JPEG";//  妈妈 "http://opor07of8.bkt.clouddn.com/campus3.jpg"
+
+    public static final String Screenshot_2017 ="https://img2.baidu.com/it/u=3042539031,3564089312&fm=253&fmt=auto&app=138&f=JPEG";//  我的家 "http://opor07of8.bkt.clouddn.com/Screenshot_2017-05-05-10-00-29-71.png"
     //默认半径为5，需要的时候可以直接用
     public static void setCornerImage(final ImageView imageView, String path) {
         if (path != null) {
-            Glide.with(App.getInstance()).load(path).asBitmap().centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.avatar_default)).into(new BitmapImageViewTarget(imageView) {
+            Glide.with(App.getInstance()).asBitmap().load(path).centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.avatar_default)).into(new BitmapImageViewTarget(imageView) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
@@ -44,7 +58,7 @@ public class ImageUtils {
     //这个可以自定义半径，需要的时候可以直接用
     public static void setCornerImage(final ImageView imageView, String path, final int radius) {
         if (path != null) {
-            Glide.with(App.getInstance()).load(path).asBitmap().centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.avatar_default)).into(new BitmapImageViewTarget(imageView) {
+            Glide.with(App.getInstance()).asBitmap().load(path).centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.avatar_default)).into(new BitmapImageViewTarget(imageView) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
@@ -59,7 +73,7 @@ public class ImageUtils {
     //轮播的特别设置的，半径20
     public static void setCornerImageNo(final ImageView imageView, String path) {
         if (path != null) {
-            Glide.with(App.getInstance()).load(path).asBitmap().centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.avatar_default)).into(new BitmapImageViewTarget(imageView) {
+            Glide.with(App.getInstance()).asBitmap().load(path).centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.avatar_default)).into(new BitmapImageViewTarget(imageView) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
@@ -73,7 +87,7 @@ public class ImageUtils {
 
     public static void setCircleImage(final ImageView imageView, String path) {
         if (path != null) {
-            Glide.with(App.getInstance()).load(path).asBitmap().centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.login_tupian_def)).into(new BitmapImageViewTarget(imageView) {
+            Glide.with(App.getInstance()).asBitmap().load(path).centerCrop().error(App.getInstance().getResources().getDrawable(R.drawable.login_tupian_def)).into(new BitmapImageViewTarget(imageView) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =

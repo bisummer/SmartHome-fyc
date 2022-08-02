@@ -23,14 +23,11 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-
 /**
  * Created by fyc on 2017/12/28.
  */
 
 public class ModBusGatewayFragment extends BaseFragment {
-    @Bind(R.id.gatewaysLv)
     SwipeMenuListView mMenuListView;
     List<ModBusGateWayModel> mList = new ArrayList<>();
     BasicAdapter<ModBusGateWayModel> mAdapter;
@@ -42,7 +39,8 @@ public class ModBusGatewayFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
+    protected void initViews(View view) {
+        mMenuListView = view.findViewById(R.id.gatewaysLv);
         footer = LayoutInflater.from(getActivity()).inflate(R.layout.footer_gateway_add, null);
 
     }

@@ -160,7 +160,7 @@ public class WaterRadarView extends View {
     private void getBitmapFromGlide(int resource) {
         ImageView imageView = new ImageView(getContext());
         imageView.setLayoutParams(new ViewGroup.MarginLayoutParams((int) mBitmapWidth, (int) mBitmapWidth));
-        Glide.with(getContext()).load(resource).asBitmap().centerCrop().transform(new RoundImageTransform(getContext())).into(new BitmapImageViewTarget(imageView) {
+        Glide.with(getContext()).asBitmap().load(resource).centerCrop().transform(new RoundImageTransform(getContext())).into(new BitmapImageViewTarget(imageView) {
             @Override
             protected void setResource(Bitmap resource) {
                 mDefaultBitmap = resource;
@@ -171,7 +171,7 @@ public class WaterRadarView extends View {
     private void getBitmapFromGlide(String url) {
         ImageView imageView = new ImageView(getContext());
         imageView.setLayoutParams(new ViewGroup.MarginLayoutParams((int) mBitmapWidth, (int) mBitmapWidth));
-        Glide.with(getContext()).load(url).asBitmap().centerCrop().transform(new RoundImageTransform(getContext())).into(new BitmapImageViewTarget(imageView) {
+        Glide.with(getContext()).asBitmap().load(url).centerCrop().transform(new RoundImageTransform(getContext())).into(new BitmapImageViewTarget(imageView) {
             @Override
             protected void setResource(Bitmap resource) {
                 mBitmap = resource;

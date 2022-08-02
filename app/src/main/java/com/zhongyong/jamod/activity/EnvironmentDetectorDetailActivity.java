@@ -1,5 +1,6 @@
 package com.zhongyong.jamod.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,19 +32,14 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import butterknife.Bind;
-
 /**
  * Created by fyc on 2017/12/28.
  */
 
 public class EnvironmentDetectorDetailActivity extends BaseActivity {
     private static final int MESSAGE_WHAT_SEND = 1;
-    @Bind(R.id.cab_titleBack_iv)
     ImageView backIv;
-    @Bind(R.id.lv_factor)
     ListView mListView;
-    @Bind(R.id.progressBar)
     ProgressBar mProgressBar;
     List<EnvironmentFactorModel> mList = new ArrayList<>();
     BasicAdapter<EnvironmentFactorModel> mAdapter;
@@ -52,6 +48,7 @@ public class EnvironmentDetectorDetailActivity extends BaseActivity {
     private String ip;
     private int uniId;
     private int clickPosition;
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -78,6 +75,10 @@ public class EnvironmentDetectorDetailActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        backIv = findViewById(R.id.cab_titleBack_iv);
+        mListView = findViewById(R.id.lv_factor);
+        mProgressBar = findViewById(R.id.progressBar);
+
         backIv.setVisibility(View.VISIBLE);
         mProgressBar.setVisibility(View.VISIBLE);
         setCustomTitle("详细参数");
